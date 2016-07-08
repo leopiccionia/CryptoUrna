@@ -3,4 +3,4 @@ De vez em quando, ouve-se notícias de defensores da impressão de comprovante i
 
 Lendo um artigo sobre utilização de autômatos celulares em criptografia (infelizmente, não me lembro dos autores), eu tive a inspiração de que há potencial uso delas nesse esquema de autenticação de votos. Implementei, portanto, um gerador de chaves de autenticação em Java baseado no Jogo da Vida (CONWAY, 1970). Sim, é um dos pedaços de código mais estranhos que já escrevi... Dito tudo isso, não realizei ainda qualquer tipo de criptoanálise encima do gerador -- que, obviamente, não é aleatório, mas espero que suficientemente pseudoaleatório.
 
-Peço desculpas, desde já, por estar usando uma versão antiga da JDK, o que não me permitiu usar, por exemplo, a classe `java.secure.SecureRandom`.
+Peço desculpas, desde já, por estar usando uma versão antiga da JDK, o que não me permitiu usar, por exemplo, a classe `java.security.SecureRandom`.
