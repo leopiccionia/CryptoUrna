@@ -1,7 +1,7 @@
 package br.leopiccionia.crypto.urna;
 
+import java.security.SecureRandom;
 import java.util.BitSet;
-import java.util.Random;
 
 public class ConwayGameOfLife implements Runnable{
 	private final int TABLE_HEIGHT = 8;
@@ -25,7 +25,7 @@ public class ConwayGameOfLife implements Runnable{
 	}
 	
 	public void mutate(){
-		Random randomness = new Random();
+		SecureRandom randomness = new SecureRandom();
 		for(int turn = 0; turn < MUTATION_TURNS; turn++){
 			int index = Math.abs(randomness.nextInt()) % TABLE_SIZE; /* Is it less likely to compute 0? */
 			table.set(index, !table.get(index));
