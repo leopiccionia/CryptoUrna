@@ -5,6 +5,7 @@ import java.util.Random;
 
 public class ConwayGameOfLife implements Runnable{
 	private final int TABLE_HEIGHT = 8;
+	private final int TABLE_WIDTH = 8;
 	private final int TABLE_SIZE = 64;
 	private final int MUTATION_TURNS = 12;
 	private BitSet table;
@@ -35,8 +36,8 @@ public class ConwayGameOfLife implements Runnable{
 		while(true){
 			BitSet newTable = new BitSet(TABLE_SIZE);
 			for(int i = 0; i < TABLE_HEIGHT; i++){
-				for(int j = 0; j < TABLE_HEIGHT; j++){
-					int index = i * TABLE_HEIGHT + j;
+				for(int j = 0; j < TABLE_WIDTH; j++){
+					int index = i * TABLE_WIDTH + j;
 					newTable.set(index, willLive(table.get(index), i, j));
 				}
 			}
@@ -51,13 +52,13 @@ public class ConwayGameOfLife implements Runnable{
 		int neighborsCount = 0;
 		
 		/* Verifying neighbors*/
-		if(table.get(TABLE_HEIGHT * ((TABLE_HEIGHT + i - 1) % TABLE_HEIGHT) + j) == true)
+		if(table.get(TABLE_WIDTH * ((TABLE_HEIGHT + i - 1) % TABLE_HEIGHT) + j) == true)
 			neighborsCount++;
-		if(table.get(TABLE_HEIGHT * ((TABLE_HEIGHT +i + 1) % TABLE_HEIGHT) + j) == true)
+		if(table.get(TABLE_WIDTH * ((i + 1) % TABLE_HEIGHT) + j) == true)
 			neighborsCount++;
-		if(table.get(TABLE_HEIGHT * i + ((TABLE_HEIGHT + j - 1) % TABLE_HEIGHT)) == true)
+		if(table.get(TABLE_WIDTH * i + ((TABLE_WIDTH + j - 1) % TABLE_WIDTH)) == true)
 			neighborsCount++;
-		if(table.get(TABLE_HEIGHT * i + ((TABLE_HEIGHT + j + 1) % TABLE_HEIGHT)) == true)
+		if(table.get(TABLE_WIDTH * i + ((j + 1) % TABLE_WIDTH)) == true)
 			neighborsCount++;
 		
 		/* Diagnosing cell's health */

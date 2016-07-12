@@ -2,6 +2,7 @@ package br.leopiccionia.crypto.urna;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.Scanner;
 
 import javax.crypto.Mac;
@@ -12,7 +13,7 @@ public class BallotBox{
 	private static final String HMAC_ALGORITHM = "HmacSHA256";
 	
 	public static void main(String[] args){
-		ConwayGameOfLife game = new ConwayGameOfLife(System.nanoTime());
+		ConwayGameOfLife game = new ConwayGameOfLife((new SecureRandom().nextLong()));
 		Thread generator = new Thread(game);
 		generator.start();
 		Scanner scanner = new Scanner(System.in);
